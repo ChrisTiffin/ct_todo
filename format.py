@@ -80,6 +80,7 @@ def parse(text, notes):
             current.append(line)
             if line == in_block:
                 in_block = False
+                current.append('')
                 current = new_group(groups, current)
             continue
 
