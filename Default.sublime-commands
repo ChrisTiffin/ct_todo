@@ -1,0 +1,54 @@
+[
+  { "caption": "Preferences: todo",
+    "command": "edit_settings",
+    "args": {
+      "base_file": "${packages}/todo/todo.sublime-settings",
+      "default": "{\n\t$0\n}\n"
+    }
+  },
+  { "caption": "Preferences: todo Key Bindings",
+    "command": "edit_settings",
+    "args": {
+      "base_file": "${packages}/todo/Default.sublime-keymap",
+      "default": "[\n\t$0\n]\n"
+    }
+  },
+  { "caption": "todo: Open Readme",
+    "command": "open_file",
+    "args": {
+      "file": "${packages}/todo/README.md"
+    }
+  },
+  {
+    "caption": "todo: Format",
+    "command": "todo_fmt"
+  },
+  // {
+  //   "caption": "todo: Clear Done",
+  //   "command": "todo_clear_done"
+  // },
+  // {
+  //   "caption": "todo: Move Group Up",
+  //   "command": "todo_group_up"
+  // },
+  // {
+  //   "caption": "todo: Move Group Down",
+  //   "command": "todo_group_down"
+  // },
+  // {
+  //   "caption": "todo: Mark as Todo",
+  //   "command": "todo_mark_todo"
+  // },
+  // {
+  //   "caption": "todo: Mark as Doing",
+  //   "command": "todo_mark_doing"
+  // },
+  // {
+  //   "caption": "todo: Mark as Done",
+  //   "command": "todo_mark_done"
+  // },
+  // {
+  //   "caption": "todo: Mark as Low Priority",
+  //   "command": "todo_mark_low"
+  // }
+]

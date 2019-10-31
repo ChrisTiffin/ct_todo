@@ -1,0 +1,48 @@
+// SYNTAX TEST "Packages/todo/todo.sublime-syntax"
+todo
+====
+1 syntax coloring
+2 folding
+3 move finished groups to bottom
++ text blocks
++ expand page headings (==)
++ expand section headings (--)
++ prioritised lists (1)
+
+shortcuts
+~~~~~~~~~
+- ctrl + alt + .?-=
+
+commands
+--------
+> mark as [todo, doing, question, done]
+- clear done
+- run formatter
+- make page heading (====)
+- make section heading (----)
+- merge into one (heading: item)
+- split into many
+- move [group, page] [up, down]
+- promote / demote
+
+notes format
+'''
+    title
+    ==
+
+    heading
+    --
+    item
+    - sub item (todo format)
+'''
+
+todo format
+'''
+    heading
+    -- (optional)
+    - to do item
+    + done item
+    ? unsure whether to do or not
+    > work in progress
+    1 prioritised item
+'''
