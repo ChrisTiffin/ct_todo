@@ -2,21 +2,21 @@
   { "caption": "Preferences: todo",
     "command": "edit_settings",
     "args": {
-      "base_file": "${packages}/todo/todo.sublime-settings",
+      "base_file": "${packages}/ct_todo/todo.sublime-settings",
       "default": "{\n\t$0\n}\n"
     }
   },
   { "caption": "Preferences: todo Key Bindings",
     "command": "edit_settings",
     "args": {
-      "base_file": "${packages}/todo/Default.sublime-keymap",
+      "base_file": "${packages}/ct_todo/Default.sublime-keymap",
       "default": "[\n\t$0\n]\n"
     }
   },
   { "caption": "todo: Open Readme",
     "command": "open_file",
     "args": {
-      "file": "${packages}/todo/README.md"
+      "file": "${packages}/ct_todo/README.md"
     }
   },
   {
