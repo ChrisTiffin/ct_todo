@@ -1,0 +1,9 @@
+[
+    // { "keys": ["ctrl+alt+-"], "command": "todo_mark_todo", },
+    // { "keys": ["ctrl+alt+."], "command": "todo_mark_doing", },
+    // { "keys": ["ctrl+alt+="], "command": "todo_mark_done", },
+    // { "keys": ["ctrl+alt+/"], "command": "todo_mark_low", },
+
+    // { "keys": ["ctrl+alt+up"], "command": "todo_move_up", },
+    // { "keys": ["ctrl+alt+down"], "command": "todo_move_down", },
+]
