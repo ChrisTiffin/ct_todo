@@ -4,10 +4,11 @@
     Formats a file according to the following todo-list structure
 
     Special 'todo-list' characters are:
-        '-' : Needs to be done
         '>' : In progress
-        '+' : Done
+        '-' : To be done
         '?' : Other (e.g. delegated, on hold, waiting)
+        '*' : Sublist
+        '+' : Done
 
     Contiguous blocks of text starting with a special character will be grouped together.
     When in a group, a line that doesn't start with a special character will form a new group.
@@ -18,8 +19,8 @@
 SPECIAL_CHARS_DICT = {
     '>':  0,  # in progress - top of the list
     '-': 85,  # remaining todo - next
-    '*': 90,  # sub list
-    '?': 95,  # possible to do - could be ignored
+    '?': 90,  # possible to do - could be ignored
+    '*': 95,  # sub list
     '+': 99,  # done - at bottom
 }
 SPECIAL_CHARS = tuple(SPECIAL_CHARS_DICT.keys())
