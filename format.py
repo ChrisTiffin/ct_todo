@@ -17,8 +17,9 @@
 
 SPECIAL_CHARS_DICT = {
     '>':  0,  # in progress - top of the list
-    '-': 97,  # remaining todo - next
-    '?': 98,  # possible to do - could be ignored
+    '-': 85,  # remaining todo - next
+    '*': 90,  # sub list
+    '?': 95,  # possible to do - could be ignored
     '+': 99,  # done - at bottom
 }
 SPECIAL_CHARS = tuple(SPECIAL_CHARS_DICT.keys())
