@@ -23,7 +23,7 @@ class TodoFmt(sublime_plugin.TextCommand):
 
   def run(self, edit):
     try:
-      from todo.format import format_text
+      from ct_todo.format import format_text
       res = format_text(self.get_content(), is_notes_file(self.view))
 
       # replace the buffer with Todo fmt output

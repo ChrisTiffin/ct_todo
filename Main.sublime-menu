@@ -10,21 +10,21 @@
               { "caption": "README",
                 "command": "open_file",
                 "args": {
-                  "file": "${packages}/todo/README.md"
+                  "file": "${packages}/ct_todo/README.md"
                 }
               },
               { "caption": "-" },
               { "caption": "Settings",
                 "command": "edit_settings",
                 "args": {
-                  "base_file": "${packages}/todo/todo.sublime-settings",
+                  "base_file": "${packages}/ct_todo/todo.sublime-settings",
                   "default": "{\n\t$0\n}\n"
                 }
               },
               { "caption": "Key Bindings",
                 "command": "edit_settings",
                 "args": {
-                  "base_file": "${packages}/todo/Default (${platform}).sublime-keymap",
+                  "base_file": "${packages}/ct_todo/Default (${platform}).sublime-keymap",
                   "default": "[\n\t$0\n]\n"
                 }
               },

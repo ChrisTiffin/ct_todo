@@ -1,4 +1,4 @@
-// SYNTAX TEST "Packages/todo/todo.sublime-syntax"
+// SYNTAX TEST "Packages/ct_todo/todo.sublime-syntax"
 todo
 ====
 1 syntax coloring
