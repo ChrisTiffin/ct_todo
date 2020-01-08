@@ -1,6 +1,9 @@
 Todo and Notes support for Sublime Text 3
 =========================================
 
+A formatter that provides simple list ordering and highlighting for sublime.
+
+
 ### Features:
 
 * Format on save for `.todo` and `.notes` files
@@ -23,24 +26,30 @@ Installation
 
 ## Configuration
 
-The defaults are available in the [Terraform.sublime-settings][settings_file]
+The defaults are available in the [todo.sublime-settings][settings_file]
 file.
 
-.todo
------
 
-Format example:
+.todo format
+------------
+
+The todo format (for any file with a .todo extension) allows a groups of lists, which will be formatted into a pre-defined order, and grouped with newlines between lists.
+
+Format example, with the list items in order:
 ```
 heading (optional)
--- or ~~ or == (optional: will all be expanded in length to match the heading)
-> in progress item
-1 numbered item
-- todo item
-? low priority item
-+ done item
+--, ~~ or == (optional: will be expanded in length to match the heading)
+> in progress
+* high priority todo
+- normal priority todo
+• low priority todo
+? unsure whether to do
+« separate list
+» delegated
++ done
 ```
 
-so:
+so a file that looks like:
 
 ```
 todo
@@ -48,19 +57,19 @@ todo
 
 list one
 --
-+ something that's been completed
++ completed task
 - todo 1
 - todo 2
-1 prioritised item
-> current
-
+> current task
+* important task
 list two
 + done
 - todo 1
-- todo 2
+• todo 2
+- todo 3
 ```
 
-once formatted, will be
+once formatted, will become:
 
 ```
 todo
@@ -68,14 +77,21 @@ todo
 
 list one
 --------
-> current
-1 prioritised item
+> current task
+* important task
 - todo 1
 - todo 2
-+ something that's been completed
++ completed task
 
 list two
 - todo 1
-- todo 2
+- todo 3
+• todo 2
 + done
+
 ```
+
+.notes format
+-------------
+
+The notes (requires .notes extension) format is the same, however it won't force newlines between lists.
