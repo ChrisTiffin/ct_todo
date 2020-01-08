@@ -1,48 +1,74 @@
 // SYNTAX TEST "Packages/ct_todo/todo.sublime-syntax"
 todo
-====
-1 syntax coloring
-2 folding
-3 move finished groups to bottom
-+ text blocks
+----
+* sublime syntax
+- expand block (##)
+- folding
+- auto new list item
+- move finished _groups_ to bottom
++ account for -word (missing space)
++ new format style (see block below)
++ add to readme (become, *)
 + expand page headings (==)
 + expand section headings (--)
-+ prioritised lists (1)
++ handle unsaved files
++ remove prioritsed lists (1)
++ text blocks
 
 shortcuts
-~~~~~~~~~
-- ctrl + alt + .?-=
+- mark as hp todo: ctrl + alt + 8
+- mark as todo: ctrl + alt + -
+- mark as lp todo: ctrl + alt + shift + 8
+- mark as doing: ctrl + alt + .
+- mark as done: ctrl + alt + =
+- mark as unsure: ctrl + alt + /
+- mark as separate list: ctrl + alt + \
+- mark as delegated: ctrl + alt + shift + \
 
 commands
 --------
-> mark as [todo, doing, question, done]
 - clear done
+- mark as [todo, doing, question, done]
 - run formatter
-- make page heading (====)
-- make section heading (----)
 - merge into one (heading: item)
 - split into many
 - move [group, page] [up, down]
 - promote / demote
 
-notes format
+potential keywords
 '''
-    title
-    ==
+    natural   - §1234567890-=[];'\,./
+    shift     - ±!@£$%^&*()_+{}:"|<>?
+    alt       - ¡€#¢∞§¶•ªº–≠“‘…æ«≤≥÷
+    shift+alt - ⁄™‹›ﬁﬂ‡°·‚—±”’ÚÆ»¯˘¿
 
+    candidates - -=±!@%*+|<>?#∞§•–≠Ú«‹›‡·—»
+'''
+
+
+notes format:
+'''
     heading
     --
     item
-    - sub item (todo format)
+    - sub item 1 (follows todo format)
+    - sub item 2
+    another item
+    - another sub item
 '''
 
-todo format
+
+todo format:
 '''
     heading
     -- (optional)
-    - to do item
-    + done item
-    ? unsure whether to do or not
     > work in progress
-    1 prioritised item
+    * high priority to do
+    - normal priority to do
+    • low priority to do
+    ? unsure whether to do
+    « separate list
+    » delegated
+    + done
 '''
+

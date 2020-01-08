@@ -1,14 +1,8 @@
-#!/python
+#!/python3
+# coding=utf-8
 
 '''
     Formats a file according to the following todo-list structure
-
-    Special 'todo-list' characters are:
-        '>' : In progress
-        '-' : To be done
-        '?' : Other (e.g. delegated, on hold, waiting)
-        '*' : Sublist
-        '+' : Done
 
     Contiguous blocks of text starting with a special character will be grouped together.
     When in a group, a line that doesn't start with a special character will form a new group.
@@ -17,48 +11,55 @@
 '''
 
 SPECIAL_CHARS_DICT = {
-    '>':  0,  # in progress - top of the list
-    '-': 85,  # remaining todo - next
-    '?': 90,  # possible to do - could be ignored
-    '*': 95,  # sub list
-    '+': 99,  # done - at bottom
+    u'>': 10,  # in progress
+    u'*': 20,  # high priority todo
+    u'-': 30,  # normal priority todo
+    u'•': 40,  # low priority todo
+    u'?': 50,  # unsure todo
+    u'«': 60,  # separate list
+    u'»': 70,  # delegated
+    u'+': 80,  # done
 }
 SPECIAL_CHARS = tuple(SPECIAL_CHARS_DICT.keys())
 
-def is_num(word):
-    ''' checks if is a number '''
-    try:
-        int(word)
-        return True
-    except:
-        return False
 
-def get_first_word(line):
+
+def is_repeated_char(line):
+    ''' checks if a line is only made up of the same character '''
+    for c in line:
+        if c != line[0]:
+            return False
+    return True
+
+def get_list_item_type(line):
+    # allow mistakes, such as '-item 1', while still allowing detection of headings '--'
     try:
-        return line.split(' ', 1)[0]
+        to_fix = False
+        split_line = line.split(' ', 1)
+        first_word = split_line[0]
+        if len(first_word) > 1:
+            if len(split_line) == 1 and is_repeated_char(first_word):
+                return None, False
+            to_fix = True
+        return first_word[0], to_fix
     except:
-        return None
+        return None, False
 
 def rank(line):
     ''' sort order for a line '''
     try:
-        first = get_first_word(line)
-        if first in SPECIAL_CHARS_DICT:
-            return SPECIAL_CHARS_DICT[first]
-        return int(first) + 1
+        return SPECIAL_CHARS_DICT[line.split(' ', 1)[0]]
     except:
         return 0
 
-def line_of(line, char):
-    ''' checks if a line is _just_ the given character '''
-    return line and line == char * len(line)
-
 def heading(line, length, chars=('-', '=', '~')):
     ''' expands a line of characters to a certain length '''
-    for char in chars:
-        if line_of(line, char):
-            return char * length
+    if line and line[0] in chars and is_repeated_char(line):
+        return line[0] * length
     return line
+
+def inject_space(line):
+    return line[:1] + ' ' + line[1:]
 
 def new_group(groups, current):
     ''' Appends to a group if needed '''
@@ -75,7 +76,7 @@ def parse(text, notes):
 
     # run through the text and group the sections
     for line in text.split('\n'):
-        # handle unformatted blocks first
+        # check for end of a comment/text block
         if in_block:
             current.append(line)
             if line == in_block:
@@ -84,29 +85,38 @@ def parse(text, notes):
                 current = new_group(groups, current)
             continue
 
+        # check for start of a comment/text block
         if line in ["'''", '"""', '```']:
             current.append(line)
             in_block = line
             continue
 
+        # remove any whitespace
         line = line.strip()
-        first = get_first_word(line)
+        # and grab the first 'word' to see how to handle the line
+        litype, fix_spacing = get_list_item_type(line)
 
-        if first and (first in SPECIAL_CHARS or is_num(first)):
+        # if it starts with a special character, add to the group
+        if litype and litype in SPECIAL_CHARS:
             in_group = True
+            if fix_spacing:
+                line = inject_space(line)
             current.append(line)
 
+        # otherwise, if we're already in a group, end it
         elif in_group:
             in_group = False
             current = new_group(groups, current)
             if line or notes:
                 current.append(line)
 
+        # if it's a newline only
         elif not line:
             if notes and current and current[-1]:
                 current.append(line)
             current = new_group(groups, current)
 
+        # if there was a line, but it wasn't special, and we weren't in a group
         else:
             # expand any headings etc
             if current:
@@ -126,7 +136,7 @@ def format_text(text, notes):
     '''
     groups = parse(text, notes)
 
-    # debug printouts
+    ## debug printouts
     # from pprint import pprint as pp
     # pp(groups)
 
@@ -146,10 +156,13 @@ def format_file(filename):
     ''' Helper for test cases '''
     notes = filename.endswith('.notes')
 
-    with open(filename) as file:
+    import codecs
+    with codecs.open(filename, 'r', encoding='utf8') as file:
         text = format_text(file.read(), notes)
 
-    with open(filename, 'w') as file:
+    with codecs.open(filename, 'w', encoding='utf8') as file:
         file.write(text)
 
 
+if __name__ == "__main__":
+    format_file("syntax_test_todo")

@@ -55,8 +55,11 @@ class TodoFmt(sublime_plugin.TextCommand):
 
 
 def is_notes_file(view):
-  _, ext = path.splitext(view.file_name())
-  return ext == '.notes'
+  try:
+    _, ext = path.splitext(view.file_name())
+    return ext == '.notes'
+  except:
+    return False
 
 
 def is_todo_source(view):

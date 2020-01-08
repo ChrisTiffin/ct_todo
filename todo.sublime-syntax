@@ -24,10 +24,12 @@ contexts:
       scope: entity.name.doing
     - match: ^\+ .*$
       scope: entity.name.done
-    # - match: ^[0-9\-] .*$
+    # - match: ^\* .*$
+    #   scope: entity.name.hp_todo
+    # - match: ^\- .*$
     #   scope: entity.name.todo
-    # - match: ^\? .*$
-    #   scope: entity.name.low
+    # - match: ^\• .*$
+    #   scope: entity.name.lp_todo
     - match: '{{heading}}'
       scope: entity.name.heading
 

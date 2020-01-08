@@ -1,8 +1,12 @@
 [
-    // { "keys": ["ctrl+alt+-"], "command": "todo_mark_todo", },
-    // { "keys": ["ctrl+alt+."], "command": "todo_mark_doing", },
-    // { "keys": ["ctrl+alt+="], "command": "todo_mark_done", },
-    // { "keys": ["ctrl+alt+/"], "command": "todo_mark_low", },
+    // { "keys": ["ctrl+alt+8"],        "command": "todo_mark_hp_todo", },
+    // { "keys": ["ctrl+alt+-"],        "command": "todo_mark_todo", },
+    // { "keys": ["ctrl+alt+shift+*"],  "command": "todo_mark_lp_todo", },
+    // { "keys": ["ctrl+alt+."],        "command": "todo_mark_doing", },
+    // { "keys": ["ctrl+alt+="],        "command": "todo_mark_done", },
+    // { "keys": ["ctrl+alt+/"],        "command": "todo_mark_unsure", },
+    // { "keys": ["ctrl+alt+\\"],       "command": "todo_mark_list", },
+    // { "keys": ["ctrl+alt+shift+\\"], "command": "todo_mark_delegated", },
 
     // { "keys": ["ctrl+alt+up"], "command": "todo_move_up", },
     // { "keys": ["ctrl+alt+down"], "command": "todo_move_down", },
