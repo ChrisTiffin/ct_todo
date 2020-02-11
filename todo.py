@@ -7,18 +7,13 @@ from os import path
 
 class TodoFmtOnSave(sublime_plugin.EventListener):
   def on_pre_save(self, view):
-    if not is_todo_source(view):
-      return
-
     view.run_command('todo_fmt')
 
 
 class TodoFmt(sublime_plugin.TextCommand):
   def is_enabled(self):
     settings = sublime.load_settings('todo.sublime-settings')
-    fmt_enabled = settings.get('format_on_save', True)
-
-    return fmt_enabled and is_todo_source(self.view)
+    return settings.get('format_on_save', True)
 
 
   def run(self, edit):
