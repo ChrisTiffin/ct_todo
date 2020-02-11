@@ -7,14 +7,14 @@ from os import path
 
 class TodoFmtOnSave(sublime_plugin.EventListener):
   def on_pre_save(self, view):
-    view.run_command('todo_fmt')
+    settings = sublime.load_settings('todo.sublime-settings')
+    if is_todo_source(view) and settings.get('format_on_save', True):
+      view.run_command('todo_fmt')
 
 
 class TodoFmt(sublime_plugin.TextCommand):
   def is_enabled(self):
-    settings = sublime.load_settings('todo.sublime-settings')
-    return settings.get('format_on_save', True)
-
+    return is_todo_source(self.view)
 
   def run(self, edit):
     try:
@@ -63,4 +63,4 @@ def is_todo_source(view):
   if sel is not None:
     tp = sel[0].begin()
 
-  return view.match_selector(tp, 'source.todo')
+  return view.match_selector(tp, 'text.todo')

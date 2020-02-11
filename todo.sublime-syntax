@@ -5,7 +5,7 @@ file_extensions:
   - todo
   - notes
 
-scope: text.plain
+scope: text.todo
 
 variables:
   string: ^(['"`])\1{2}$\n?
