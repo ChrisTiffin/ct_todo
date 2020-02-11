@@ -5,7 +5,7 @@ file_extensions:
   - todo
   - notes
 
-scope: source.todo
+scope: text.plain
 
 variables:
   string: ^(['"`])\1{2}$\n?
@@ -48,11 +48,11 @@ contexts:
 
   text_block:
     - match: '{{string}}'
-      scope: punctuation.definition.string.begin.todo
+      scope: punctuation.definition.string.begin
       push: inside_text
 
   inside_text:
-    - meta_scope: string.quoted.triple.todo
+    - meta_scope: string.quoted.triple
     - match: '{{string}}'
-      scope: punctuation.definition.string.end.todo
+      scope: punctuation.definition.string.end
       pop: true
