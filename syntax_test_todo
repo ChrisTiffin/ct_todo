@@ -1,11 +1,32 @@
 // SYNTAX TEST "Packages/ct_todo/todo.sublime-syntax"
+test data
+---------
+> work in progress      - (white)
+// <- entity.name.doing
+* high priority to do   - (red)
+// <- entity.name.hp_todo
+- normal priority to do - (orange)
+// <- entity.name.todo
+• low priority to do    - (yellow)
+// <- entity.name.lp_todo
+? unsure whether to do  - (grey)
+// <- entity.name.unsure
+« separate list         - ()
+// <- entity.name.separate
+» delegated             - ()
+// <- entity.name.delegated
++ done                  - (green)
+// <- entity.name.done
+
 todo
 ----
-* sublime syntax
+* sublime syntax highlighting
+* no format inside comment blocks
 - expand block (##)
 - folding
 - auto new list item
 - move finished _groups_ to bottom
+- http://www.sublimetext.com/docs/3/syntax.html
 + account for -word (missing space)
 + new format style (see block below)
 + add to readme (become, *)
@@ -28,12 +49,13 @@ shortcuts
 commands
 --------
 - clear done
-- mark as [todo, doing, question, done]
-- run formatter
+- promote to [todo, doing, question, done]
+- demote to text
 - merge into one (heading: item)
 - split into many
 - move [group, page] [up, down]
 - promote / demote
++ run formatter
 
 potential keywords
 '''
@@ -70,5 +92,15 @@ todo format:
     « separate list
     » delegated
     + done
+'''
+
+
+test comment:
+'''
+some words
+# sorted
+- shouldn't
+• these
++ be
 '''
 

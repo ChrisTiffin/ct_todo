@@ -1,0 +1,56 @@
+block
+text block
+heading block
+todo block
+comment block
+
+break
+empty break
+paragraph break
+
+todo item
+line item
+
+--
+| block
+heading             |   text block
+- -                  |
+
+words               |   text block
+words               |   list block
+- item              |     list item
+- item              |     list item
+
+words               |   text block
+words               |   text block
+
+| block
+heading             | block heading
+- -                  | block separator
+
+words               | block line
+words               |   todo block
+- item              |     todo item
+- item              |     todo item
+
+words               | block line
+words               | block line
+
+block:
+- prefix separator
+- heading []
+- heading separator
+- lines [] (line, todo)
+- max length
+- sort order
+- postfix separator
+
+todo item:
+- type
+- text
+
+--
+settings
+- prefix or postfix separators?
+- auto sort groups (put finished groups at bottom)
+- subtle mode (full line, or points only)

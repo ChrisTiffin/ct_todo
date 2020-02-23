@@ -16,20 +16,43 @@ contexts:
     # The main context is the initial starting point of our syntax.
     # Include other contexts from here (or specify them directly).
     - include: types
-    - include: todo_block
+    # - include: todo_block
     - include: text_block
 
   types:
-    - match: ^\> .*$
-      scope: entity.name.doing
-    - match: ^\+ .*$
-      scope: entity.name.done
+    # - match: ^\> .*$
+    #   scope: entity.name.doing
     # - match: ^\* .*$
     #   scope: entity.name.hp_todo
     # - match: ^\- .*$
     #   scope: entity.name.todo
     # - match: ^\• .*$
     #   scope: entity.name.lp_todo
+    # - match: ^\+ .*$
+    #   scope: entity.name.done
+    # - match: '{{heading}}'
+    #   scope: entity.name.heading
+
+    - match: '^\> '
+      scope: entity.name.doing
+
+    - match: '^\* '
+      scope: entity.name.hp_todo
+    - match: '^\- '
+      scope: entity.name.todo
+    - match: '^\• '
+      scope: entity.name.lp_todo
+
+    - match: '^\? '
+      scope: entity.name.unsure
+    - match: '^\« '
+      scope: entity.name.separate
+    - match: '^\« '
+      scope: entity.name.delegated
+
+    - match: '^\» '
+      scope: entity.name.done
+
     - match: '{{heading}}'
       scope: entity.name.heading
 
