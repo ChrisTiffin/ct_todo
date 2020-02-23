@@ -62,24 +62,3 @@ class TodoFmtOnSave(sublime_plugin.EventListener):
         if settings.get('format_on_save', True):
             view.run_command('todo_fmt')
 
-
-
-class TodoMarkDoing(sublime_plugin.TextCommand):
-    def is_enabled(self):
-        return is_todo_source(self.view)
-
-    def run(self, edit, notes=None):
-        try:
-            if notes is None:
-                notes = is_notes_file(self.view)
-
-            # replace the buffer with Todo fmt output
-            res = format_text(self.get_content(), notes)
-            self.view.replace(edit, sublime.Region(0, self.view.size()), res)
-
-        except:
-            show_error(self.view)
-
-    def get_content(self):
-        region = sublime.Region(0, self.view.size())
-        return self.view.substr(region)
