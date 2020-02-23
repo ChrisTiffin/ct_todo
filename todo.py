@@ -29,6 +29,9 @@ def show_error(view):
     panel.set_read_only(True)
     window.run_command('show_panel', { 'panel': 'output.todo_fmt_error' })
 
+def hide_error(view):
+    view.window().run_command('hide_panel', { 'panel': 'output.todo_fmt_error' })
+
 
 class TodoFmt(sublime_plugin.TextCommand):
     def is_enabled(self):
@@ -42,6 +45,7 @@ class TodoFmt(sublime_plugin.TextCommand):
             # replace the buffer with Todo fmt output
             res = format_text(self.get_content(), notes)
             self.view.replace(edit, sublime.Region(0, self.view.size()), res)
+            hide_error(self.view)
 
         except:
             show_error(self.view)
