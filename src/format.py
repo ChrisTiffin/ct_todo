@@ -1,4 +1,4 @@
-#!/python3
+
 # coding=utf-8
 
 '''
@@ -143,7 +143,6 @@ def format_text(text, notes):
 
     sorted_groups = []
     for group in groups:
-        print (group)
         if group and group[0] and group[0] in COMMENT_DELIMS:
             sorted_groups.append('\n'.join(group))
         else:
@@ -170,4 +169,4 @@ def format_file(filename):
 
 
 if __name__ == "__main__":
-    format_file("syntax_test_todo")
+    format_file("../format_test.todo")

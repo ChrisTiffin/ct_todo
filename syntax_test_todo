@@ -1,106 +1,38 @@
 // SYNTAX TEST "Packages/ct_todo/todo.sublime-syntax"
-test data
----------
-> work in progress      - (white)
-// <- entity.name.doing
-* high priority to do   - (red)
-// <- entity.name.hp_todo
-- normal priority to do - (orange)
-// <- entity.name.todo
-• low priority to do    - (yellow)
-// <- entity.name.lp_todo
-? unsure whether to do  - (grey)
-// <- entity.name.unsure
-« separate list         - ()
-// <- entity.name.separate
-» delegated             - ()
-// <- entity.name.delegated
-+ done                  - (green)
-// <- entity.name.done
+syntax test
+-----------
+// <- ct_todo.heading
+> work in progress
+// <- ct_todo.doing
+* high priority to do
+// <- ct_todo.todo.hp
+- normal priority to do
+// <- ct_todo.todo
+• low priority to do
+// <- ct_todo.todo.lp
+? unsure whether to do
+// <- ct_todo.unsure
+« separate list
+// <- ct_todo.separate
+» delegated
+// <- ct_todo.delegated
++ done
+// <- ct_todo.done
 
-todo
-----
-* sublime syntax highlighting
-* no format inside comment blocks
-- expand block (##)
-- folding
-- auto new list item
-- move finished _groups_ to bottom
-- http://www.sublimetext.com/docs/3/syntax.html
-+ account for -word (missing space)
-+ new format style (see block below)
-+ add to readme (become, *)
-+ expand page headings (==)
-+ expand section headings (--)
-+ handle unsaved files
-+ remove prioritsed lists (1)
-+ text blocks
+colour test
+-----------
+> work in progress      - (orange) (A)
+* high priority to do   - (red)    (B)
+- normal priority to do - (white)
+• low priority to do    - (yellow) (A light)
+? unsure whether to do  - (grey)   (C)
+« separate list         - (grey)   (C)
+» delegated             - (grey)   (C)
++ done                  - (green)  (D)
 
-shortcuts
-- mark as hp todo: ctrl + alt + 8
-- mark as todo: ctrl + alt + -
-- mark as lp todo: ctrl + alt + shift + 8
-- mark as doing: ctrl + alt + .
-- mark as done: ctrl + alt + =
-- mark as unsure: ctrl + alt + /
-- mark as separate list: ctrl + alt + \
-- mark as delegated: ctrl + alt + shift + \
-
-commands
---------
-- clear done
-- promote to [todo, doing, question, done]
-- demote to text
-- merge into one (heading: item)
-- split into many
-- move [group, page] [up, down]
-- promote / demote
-+ run formatter
-
-potential keywords
-'''
-    natural   - §1234567890-=[];'\,./
-    shift     - ±!@£$%^&*()_+{}:"|<>?
-    alt       - ¡€#¢∞§¶•ªº–≠“‘…æ«≤≥÷
-    shift+alt - ⁄™‹›ﬁﬂ‡°·‚—±”’ÚÆ»¯˘¿
-
-    candidates - -=±!@%*+|<>?#∞§•–≠Ú«‹›‡·—»
-'''
-
-
-notes format:
-'''
-    heading
-    --
-    item
-    - sub item 1 (follows todo format)
-    - sub item 2
-    another item
-    - another sub item
-'''
-
-
-todo format:
-'''
-    heading
-    -- (optional)
-    > work in progress
-    * high priority to do
-    - normal priority to do
-    • low priority to do
-    ? unsure whether to do
-    « separate list
-    » delegated
-    + done
-'''
-
-
-test comment:
+comment test
+------------
 '''
 some words
-# sorted
-- shouldn't
-• these
-+ be
+  inside a comment block
 '''
-

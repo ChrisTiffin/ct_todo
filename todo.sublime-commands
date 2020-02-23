@@ -20,35 +20,29 @@
     }
   },
   {
-    "caption": "todo: Format",
-    "command": "todo_fmt"
+    "caption": "todo: Format As Notes",
+    "command": "todo_fmt",
+    "args": {
+      "notes": true
+    }
+  },
+  {
+    "caption": "todo: Format As Todo",
+    "command": "todo_fmt",
+    "args": {
+      "notes": false
+    }
   },
   // {
-  //   "caption": "todo: Clear Done",
+  //   "caption": "todo: Clear All Complete",
   //   "command": "todo_clear_done"
   // },
   // {
   //   "caption": "todo: Move Group Up",
-  //   "command": "todo_group_up"
+  //   "command": "todo_move_group_up"
   // },
   // {
   //   "caption": "todo: Move Group Down",
-  //   "command": "todo_group_down"
-  // },
-  // {
-  //   "caption": "todo: Mark as Todo",
-  //   "command": "todo_mark_todo"
-  // },
-  // {
-  //   "caption": "todo: Mark as Doing",
-  //   "command": "todo_mark_doing"
-  // },
-  // {
-  //   "caption": "todo: Mark as Done",
-  //   "command": "todo_mark_done"
-  // },
-  // {
-  //   "caption": "todo: Mark as Low Priority",
-  //   "command": "todo_mark_low"
+  //   "command": "todo_move_group_down"
   // }
 ]
