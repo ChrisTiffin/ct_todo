@@ -8,11 +8,12 @@ import os
 from .src.format import format_text
 
 def is_notes_file(view):
+    # less damaging to default to notes type
     try:
         _, ext = os.path.splitext(view.file_name())
         return ext != '.todo'
     except:
-        return True # less damaging to assume notes if no filetype
+        return True
 
 def is_todo_source(view):
     return "todo.sublime-syntax" in view.settings().get("syntax")

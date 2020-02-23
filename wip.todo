@@ -1,12 +1,12 @@
 todo
 ----
 * commands
-* don't format inside comment blocks
 - threading
 - expand block (##)
 - folding
 - auto new list item
 - move finished _groups_ to bottom
++ don't format inside comment blocks
 + sublime syntax highlighting
 + account for -word (missing space)
 + new format style (see block below)
