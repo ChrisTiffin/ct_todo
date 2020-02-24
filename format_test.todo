@@ -1,0 +1,34 @@
+sort order test
+---------------
+> work in progress      - 1
+* high priority to do   - 2
+- normal priority to do - 3
+• low priority to do    - 4
+? unsure whether to do  - 5
+« separate list         - 6
+» delegated             - 7
++ done                  - 8
+
+comment test
+------------
+'''
+some words
+  inside a comment block
+'''
+
+
+"""
+some words
+  inside a comment block
+"""
+
+
+```
+these
+--
+? should
+*not
+- be
+>sorted
+```
+

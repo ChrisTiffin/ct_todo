@@ -1,74 +1,38 @@
 // SYNTAX TEST "Packages/ct_todo/todo.sublime-syntax"
-todo
-----
-* sublime syntax
-- expand block (##)
-- folding
-- auto new list item
-- move finished _groups_ to bottom
-+ account for -word (missing space)
-+ new format style (see block below)
-+ add to readme (become, *)
-+ expand page headings (==)
-+ expand section headings (--)
-+ handle unsaved files
-+ remove prioritsed lists (1)
-+ text blocks
+syntax test
+-----------
+// <- ct_todo.heading
+> work in progress
+// <- ct_todo.doing
+* high priority to do
+// <- ct_todo.todo.hp
+- normal priority to do
+// <- ct_todo.todo
+• low priority to do
+// <- ct_todo.todo.lp
+? unsure whether to do
+// <- ct_todo.unsure
+« separate list
+// <- ct_todo.separate
+» delegated
+// <- ct_todo.delegated
++ done
+// <- ct_todo.done
 
-shortcuts
-- mark as hp todo: ctrl + alt + 8
-- mark as todo: ctrl + alt + -
-- mark as lp todo: ctrl + alt + shift + 8
-- mark as doing: ctrl + alt + .
-- mark as done: ctrl + alt + =
-- mark as unsure: ctrl + alt + /
-- mark as separate list: ctrl + alt + \
-- mark as delegated: ctrl + alt + shift + \
+colour test
+-----------
+> work in progress      - (orange) (A)
+* high priority to do   - (red)    (B)
+- normal priority to do - (white)
+• low priority to do    - (yellow) (A light)
+? unsure whether to do  - (grey)   (C)
+« separate list         - (grey)   (C)
+» delegated             - (grey)   (C)
++ done                  - (green)  (D)
 
-commands
---------
-- clear done
-- mark as [todo, doing, question, done]
-- run formatter
-- merge into one (heading: item)
-- split into many
-- move [group, page] [up, down]
-- promote / demote
-
-potential keywords
+comment test
+------------
 '''
-    natural   - §1234567890-=[];'\,./
-    shift     - ±!@£$%^&*()_+{}:"|<>?
-    alt       - ¡€#¢∞§¶•ªº–≠“‘…æ«≤≥÷
-    shift+alt - ⁄™‹›ﬁﬂ‡°·‚—±”’ÚÆ»¯˘¿
-
-    candidates - -=±!@%*+|<>?#∞§•–≠Ú«‹›‡·—»
+some words
+  inside a comment block
 '''
-
-
-notes format:
-'''
-    heading
-    --
-    item
-    - sub item 1 (follows todo format)
-    - sub item 2
-    another item
-    - another sub item
-'''
-
-
-todo format:
-'''
-    heading
-    -- (optional)
-    > work in progress
-    * high priority to do
-    - normal priority to do
-    • low priority to do
-    ? unsure whether to do
-    « separate list
-    » delegated
-    + done
-'''
-

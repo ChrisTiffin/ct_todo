@@ -1,43 +1,25 @@
+#!/python3
+
 import sublime
 import sublime_plugin
 import traceback
+import os
 
-import sys
-from os import path
+from .src.format import format_text
 
-class TodoFmtOnSave(sublime_plugin.EventListener):
-  def on_pre_save(self, view):
-    settings = sublime.load_settings('todo.sublime-settings')
-    if is_todo_source(view) and settings.get('format_on_save', True):
-      view.run_command('todo_fmt')
-
-
-class TodoFmt(sublime_plugin.TextCommand):
-  def is_enabled(self):
-    return is_todo_source(self.view)
-
-  def run(self, edit):
+def is_notes_file(view):
+    # less damaging to default to notes type
     try:
-      from ct_todo.format import format_text
-      res = format_text(self.get_content(), is_notes_file(self.view))
-
-      # replace the buffer with Todo fmt output
-      self.view.replace(edit, sublime.Region(0, self.view.size()), res)
-
-      # hide previous errors
-      self.view.window().run_command('hide_panel', { 'panel': 'output.todo_fmt_error' })
-
+        _, ext = os.path.splitext(view.file_name())
+        return ext != '.todo'
     except:
-      self.show_error()
+        return True
 
+def is_todo_source(view):
+    return "todo.sublime-syntax" in view.settings().get("syntax")
 
-  def get_content(self):
-    region = sublime.Region(0, self.view.size())
-    return self.view.substr(region)
-
-
-  def show_error(self):
-    window = self.view.window()
+def show_error(view):
+    window = view.window()
     panel = window.create_output_panel('todo_fmt_error')
     panel.set_syntax_file('Packages/Text/Plain text.tmLanguage')
     panel.settings().set('line_numbers', False)
@@ -48,19 +30,35 @@ class TodoFmt(sublime_plugin.TextCommand):
     panel.set_read_only(True)
     window.run_command('show_panel', { 'panel': 'output.todo_fmt_error' })
 
-
-def is_notes_file(view):
-  try:
-    _, ext = path.splitext(view.file_name())
-    return ext == '.notes'
-  except:
-    return False
+def hide_error(view):
+    view.window().run_command('hide_panel', { 'panel': 'output.todo_fmt_error' })
 
 
-def is_todo_source(view):
-  tp = 0
-  sel = view.sel()
-  if sel is not None:
-    tp = sel[0].begin()
+class TodoFmt(sublime_plugin.TextCommand):
+    def is_enabled(self):
+        return is_todo_source(self.view)
 
-  return view.match_selector(tp, 'text.todo')
+    def run(self, edit, notes=None):
+        try:
+            if notes is None:
+                notes = is_notes_file(self.view)
+
+            # replace the buffer with Todo fmt output
+            res = format_text(self.get_content(), notes)
+            self.view.replace(edit, sublime.Region(0, self.view.size()), res)
+            hide_error(self.view)
+
+        except:
+            show_error(self.view)
+
+    def get_content(self):
+        region = sublime.Region(0, self.view.size())
+        return self.view.substr(region)
+
+
+class TodoFmtOnSave(sublime_plugin.EventListener):
+    def on_pre_save(self, view):
+        settings = sublime.load_settings('todo.sublime-settings')
+        if settings.get('format_on_save', True):
+            view.run_command('todo_fmt')
+

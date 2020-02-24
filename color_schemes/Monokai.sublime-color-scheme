@@ -1,0 +1,42 @@
+{
+    "name": "CT Todo Color Scheme",
+    "url": "https://paletton.com/#uid=70C2f0knpv-ixEHl3-2q1u2t6rF",
+    "rules": [
+        {
+            "scope": "ct_todo.doing",
+            "foreground": "#EF942D",
+        },
+        {
+            "scope": "ct_todo.todo.hp",
+            "foreground": "#FC4844",
+        },
+        {
+            "scope": "ct_todo.todo",
+            "foreground": "",
+        },
+        {
+            "scope": "ct_todo.todo.lp",
+            "foreground": "#FFB96B",
+        },
+        {
+            "scope": "ct_todo.unsure",
+            "foreground": "#408CAD",
+        },
+        {
+            "scope": "ct_todo.separate",
+            "foreground": "#408CAD",
+        },
+        {
+            "scope": "ct_todo.delegated",
+            "foreground": "#408CAD",
+        },
+        {
+            "scope": "ct_todo.done",
+            "foreground": "#23BC2D",
+        },
+        {
+            "scope": "ct_todo.heading",
+            "foreground": "#559EBD",
+        }
+    ]
+}

@@ -7,8 +7,8 @@ A formatter that provides simple list ordering and highlighting for sublime.
 ### Features:
 
 * Format on save for `.todo` and `.notes` files
-* Syntax highlighting for `.todo` files.
-* Commands for `.todo` files
+* Syntax highlighting for `todo` files.
+* Commands for `todo` files
 * Snippets
 
 Installation
@@ -38,7 +38,7 @@ The todo format (for any file with a .todo extension) allows a groups of lists, 
 Format example, with the list items in order:
 ```
 heading (optional)
---, ~~ or == (optional: will be expanded in length to match the heading)
+--, ~~ or == (optional: will be expanded to match the heading length)
 > in progress
 * high priority todo
 - normal priority todo
@@ -95,3 +95,13 @@ list two
 -------------
 
 The notes (requires .notes extension) format is the same, however it won't force newlines between lists.
+
+```
+heading
+--
+item
+- sub item 1 (follows todo format)
+- sub item 2
+another item
+- another sub item
+```

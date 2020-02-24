@@ -13,37 +13,32 @@ variables:
 
 contexts:
   main:
-    # The main context is the initial starting point of our syntax.
-    # Include other contexts from here (or specify them directly).
     - include: types
-    - include: todo_block
     - include: text_block
 
   types:
-    - match: ^\> .*$
-      scope: entity.name.doing
-    - match: ^\+ .*$
-      scope: entity.name.done
-    # - match: ^\* .*$
-    #   scope: entity.name.hp_todo
-    # - match: ^\- .*$
-    #   scope: entity.name.todo
-    # - match: ^\• .*$
-    #   scope: entity.name.lp_todo
+    - match: '^\> .*$'
+      scope: ct_todo.doing
+
+    - match: '^\* .*$'
+      scope: ct_todo.todo.hp
+    - match: '^\- .*$'
+      scope: ct_todo.todo
+    - match: '^\• .*$'
+      scope: ct_todo.todo.lp
+
+    - match: '^\? .*$'
+      scope: ct_todo.unsure
+    - match: '^\« .*$'
+      scope: ct_todo.separate
+    - match: '^\» .*$'
+      scope: ct_todo.delegated
+
+    - match: '^\+ .*$'
+      scope: ct_todo.done
+
     - match: '{{heading}}'
-      scope: entity.name.heading
-
-
-  # todo_block:
-  #   - match: '{{heading}}'
-  #     scope: punctuation.definition.string.begin.todo
-  #     push: inside_todo
-
-  # inside_todo:
-  #   - meta_scope: string.quoted.double.todo
-  #   - match: '^$\n'
-  #     scope: punctuation.definition.string.end.todo
-  #     pop: true
+      scope: ct_todo.heading
 
 
   text_block:

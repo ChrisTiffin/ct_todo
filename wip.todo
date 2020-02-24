@@ -1,0 +1,57 @@
+todo
+----
+* commands
+- threading
+- expand block (##)
+- folding
+- auto new list item
+- move finished _groups_ to bottom
++ don't format inside comment blocks
++ sublime syntax highlighting
++ account for -word (missing space)
++ new format style (see block below)
++ add to readme (become, *)
++ expand page headings (==)
++ expand section headings (--)
++ handle unsaved files
++ remove prioritised lists (1)
++ text/comment blocks
+
+shortcuts
+---------
+mark as
+- doing:         ctrl + alt + .
+- hp todo:       ctrl + alt + shift + 8
+- todo:          ctrl + alt + -
+- lp todo:       ctrl + alt + 8
+- unsure:        ctrl + alt + /
+- separate list: ctrl + alt + \
+- delegated:     ctrl + alt + shift + \
+- done:          ctrl + alt + =
+
+demote to text:  ctrl + alt + [
+
+move group:
+- up
+- down
+
+commands
+--------
+* mark as ...
+- remove all done
+- demote to text
+- move group [up, down]
+? merge into one (heading: item)
+? split into many
++ run formatter
+
+potential keywords
+'''
+    natural   - §1234567890-=[];'\,./
+    shift     - ±!@£$%^&*()_+{}:"|<>?
+    alt       - ¡€#¢∞§¶•ªº–≠“‘…æ«≤≥÷
+    shift+alt - ⁄™‹›ﬁﬂ‡°·‚—±”’ÚÆ»¯˘¿
+
+    candidates - -=±!@%*+|<>?#∞§•–≠Ú«‹›‡·—»
+'''
+

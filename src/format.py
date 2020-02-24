@@ -1,4 +1,4 @@
-#!/python3
+
 # coding=utf-8
 
 '''
@@ -22,6 +22,7 @@ SPECIAL_CHARS_DICT = {
 }
 SPECIAL_CHARS = tuple(SPECIAL_CHARS_DICT.keys())
 
+COMMENT_DELIMS = ["'''", '"""', '```']
 
 
 def is_repeated_char(line):
@@ -86,7 +87,7 @@ def parse(text, notes):
             continue
 
         # check for start of a comment/text block
-        if line in ["'''", '"""', '```']:
+        if line in COMMENT_DELIMS:
             current.append(line)
             in_block = line
             continue
@@ -142,10 +143,13 @@ def format_text(text, notes):
 
     sorted_groups = []
     for group in groups:
-        # decorate, sort, un-decorate
-        decorated = [(rank(line), line) for line in group]
-        decorated.sort(key=lambda a: a[0]) # stable sort with only the ranking
-        sorted_groups.append('\n'.join([line for (t, line) in decorated]))
+        if group and group[0] and group[0] in COMMENT_DELIMS:
+            sorted_groups.append('\n'.join(group))
+        else:
+            # decorate, sort, un-decorate
+            decorated = [(rank(line), line) for line in group]
+            decorated.sort(key=lambda a: a[0]) # stable sort with only the ranking
+            sorted_groups.append('\n'.join([line for (t, line) in decorated]))
 
     spacing = '\n' if notes else '\n\n'
     ending = '' if notes else '\n'
@@ -165,4 +169,4 @@ def format_file(filename):
 
 
 if __name__ == "__main__":
-    format_file("syntax_test_todo")
+    format_file("../format_test.todo")
