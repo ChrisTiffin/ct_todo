@@ -4,7 +4,7 @@
     "rules": [
         {
             "scope": "ct_todo.doing",
-            "foreground": "var(todo_orange3)",
+            "foreground": "var(todo_orange4)",
         },
         {
             "scope": "ct_todo.paused",
@@ -20,8 +20,7 @@
         // },
         {
             "scope": "ct_todo.todo.lp",
-            "foreground": "#FFB96B",
-            "foreground": "var(todo_orange1)",
+            "foreground": "var(todo_yellow)",
         },
         {
             "scope": "ct_todo.unsure",
@@ -65,5 +64,6 @@
         "todo_blue3":   "#307D9F",
         "todo_blue4":   "#227497",
         "todo_blue5":   "#12678B",
+        "todo_yellow":  "#FFDB58",
     }
 }
