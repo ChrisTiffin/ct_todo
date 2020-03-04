@@ -1,13 +1,14 @@
 sort order test
 ---------------
 > work in progress      - 1
-* high priority to do   - 2
-- normal priority to do - 3
-• low priority to do    - 4
-? unsure whether to do  - 5
-« separate list         - 6
-» delegated             - 7
-+ done                  - 8
+< paused                - 2
+* high priority to do   - 3
+- normal priority to do - 4
+• low priority to do    - 5
+? unsure whether to do  - 6
+« separate list         - 7
+» delegated             - 8
++ done                  - 9
 
 comment test
 ------------

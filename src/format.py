@@ -12,13 +12,14 @@
 
 SPECIAL_CHARS_DICT = {
     u'>': 10,  # in progress
-    u'*': 20,  # high priority todo
-    u'-': 30,  # normal priority todo
-    u'•': 40,  # low priority todo
-    u'?': 50,  # unsure todo
-    u'«': 60,  # separate list
-    u'»': 70,  # delegated
-    u'+': 80,  # done
+    u'<': 20,  # paused
+    u'*': 30,  # high priority todo
+    u'-': 40,  # normal priority todo
+    u'•': 50,  # low priority todo
+    u'?': 60,  # unsure todo
+    u'«': 70,  # separate list
+    u'»': 80,  # delegated
+    u'+': 90,  # done
 }
 SPECIAL_CHARS = tuple(SPECIAL_CHARS_DICT.keys())
 

@@ -21,6 +21,7 @@ shortcuts
 ---------
 mark as
 - doing:         ctrl + alt + .
+- paused:        ctrl + alt + shift + .
 - hp todo:       ctrl + alt + shift + 8
 - todo:          ctrl + alt + -
 - lp todo:       ctrl + alt + 8

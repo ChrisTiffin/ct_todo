@@ -19,6 +19,8 @@ contexts:
   types:
     - match: '^\> .*$'
       scope: ct_todo.doing
+    - match: '^\< .*$'
+      scope: ct_todo.paused
 
     - match: '^\* .*$'
       scope: ct_todo.todo.hp

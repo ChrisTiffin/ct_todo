@@ -4,6 +4,8 @@ syntax test
 // <- ct_todo.heading
 > work in progress
 // <- ct_todo.doing
+< work in progress
+// <- ct_todo.paused
 * high priority to do
 // <- ct_todo.todo.hp
 - normal priority to do
@@ -21,14 +23,51 @@ syntax test
 
 colour test
 -----------
-> work in progress      - (orange) (A)
-* high priority to do   - (red)    (B)
+> work in progress      - (orange)
+* high priority to do   - (red)
 - normal priority to do - (white)
-• low priority to do    - (yellow) (A light)
-? unsure whether to do  - (grey)   (C)
-« separate list         - (grey)   (C)
-» delegated             - (grey)   (C)
-+ done                  - (green)  (D)
+• low priority to do    - (orange)
+? unsure whether to do  - (grey)
+« separate list         - (grey)
+» delegated             - (grey)
++ done                  - (green)
+
+colour test example 1
+---------------------
+> have a cup of tea
+< work on todo list software
+* speak with karen
+* speak with client a
+- email bob
+- hold team meeting
+- speak with client b
+• expense report
+» speak with client c
++ reply to frank's email
+
+colour test example 2
+---------------------
+* speak with karen
+* speak with client a
+- email bob
+- hold team meeting
+- speak with client b
+- speak with client c
+- expense report
++ reply to frank's email
+
+colour test example 3
+---------------------
+> have a cup of tea
+< work on todo list software
+- hold team meeting
+• expense report
+• email bob
+« speak with client b
+« speak with client c
++ speak with karen
++ speak with client a
++ reply to frank's email
 
 comment test
 ------------
