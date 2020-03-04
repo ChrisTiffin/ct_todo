@@ -24,12 +24,13 @@ syntax test
 colour test
 -----------
 > work in progress      - (orange)
+< work in progress      - (light blue)
 * high priority to do   - (red)
 - normal priority to do - (white)
 • low priority to do    - (yellow)
-? unsure whether to do  - (grey)
-« separate list         - (grey)
-» delegated             - (grey)
+? unsure whether to do  - (dark blue)
+« separate list         - (dark blue)
+» delegated             - (dark blue)
 + done                  - (green)
 
 colour test example 1
