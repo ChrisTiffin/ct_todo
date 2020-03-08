@@ -1,7 +1,8 @@
 // SYNTAX TEST "Packages/ct_todo/todo.sublime-syntax"
 syntax test
------------
 // <- ct_todo.heading
+---------------------
+// <- ct_todo.separator
 > work in progress
 // <- ct_todo.doing
 < work in progress
@@ -76,3 +77,22 @@ comment test
 some words
   inside a comment block
 '''
+
+'''
+some words
+  inside a comment block
+'''
+
+test heading without
+block underneath
+
+> have a cup of tea
+< work on todo list software
+- hold team meeting
+• expense report
+• email bob
+« speak with client b
+« speak with client c
++ speak with karen
++ speak with client a
++ reply to frank's email
