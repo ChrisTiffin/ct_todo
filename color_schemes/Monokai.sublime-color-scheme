@@ -41,6 +41,10 @@
         {
             "scope": "ct_todo.heading",
             "foreground": "var(todo_blue1)",
+        },
+        {
+            "scope": "ct_todo.separator",
+            "foreground": "var(todo_blue1)",
         }
     ],
     "variables": {

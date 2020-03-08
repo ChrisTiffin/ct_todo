@@ -1,6 +1,7 @@
 %YAML 1.2
 ---
 # See http://www.sublimetext.com/docs/3/syntax.html
+# ^([^{{any_todo}}\n].*)\n(?=(?:[\-\=\~]+\n)?[{{any_todo}}])
 file_extensions:
   - todo
   - notes
@@ -8,8 +9,8 @@ file_extensions:
 scope: text.todo
 
 variables:
-  string: ^(['"`])\1{2}$\n?
-  heading: ^([-=~])\1+$\n?
+  string:    ^(['"`])\1{2}$\n?
+  separator: ^([\-=~])\1+$\n?
 
 contexts:
   main:
@@ -17,31 +18,29 @@ contexts:
     - include: text_block
 
   types:
-    - match: '^\> .*$'
+    - match: ^>\s.*$
       scope: ct_todo.doing
-    - match: '^\< .*$'
+    - match: ^<\s.*$
       scope: ct_todo.paused
 
-    - match: '^\* .*$'
+    - match: ^\*\s.*$
       scope: ct_todo.todo.hp
-    - match: '^\- .*$'
+    - match: ^\-\s.*$
       scope: ct_todo.todo
-    - match: '^\• .*$'
+    - match: ^•\s.*$
       scope: ct_todo.todo.lp
 
-    - match: '^\? .*$'
+    - match: ^\?\s.*$
       scope: ct_todo.unsure
-    - match: '^\« .*$'
+    - match: ^«\s.*$
       scope: ct_todo.separate
-    - match: '^\» .*$'
+    - match: ^»\s.*$
       scope: ct_todo.delegated
 
-    - match: '^\+ .*$'
+    - match: ^\+\s.*$
       scope: ct_todo.done
-
-    - match: '{{heading}}'
-      scope: ct_todo.heading
-
+    - match: '{{separator}}'
+      scope: ct_todo.separator
 
   text_block:
     - match: '{{string}}'

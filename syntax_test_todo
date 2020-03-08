@@ -1,7 +1,8 @@
 // SYNTAX TEST "Packages/ct_todo/todo.sublime-syntax"
 syntax test
------------
 // <- ct_todo.heading
+---------------------
+// <- ct_todo.separator
 > work in progress
 // <- ct_todo.doing
 < work in progress
@@ -21,8 +22,21 @@ syntax test
 + done
 // <- ct_todo.done
 
+line one
+--------
+line two
+
+heading test
+> asdf
++ done
++ done 2
+
 colour test
------------
+asdfasdf
+sdfasdfasd
+
+asdf
+----
 > work in progress      - (orange)
 < work in progress      - (light blue)
 * high priority to do   - (red)
