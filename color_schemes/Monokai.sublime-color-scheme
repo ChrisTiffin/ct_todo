@@ -24,15 +24,15 @@
         },
         {
             "scope": "ct_todo.unsure",
-            "foreground": "var(todo_blue5)",
+            "foreground": "var(todo_blue4)",
         },
         {
             "scope": "ct_todo.separate",
-            "foreground": "var(todo_blue5)",
+            "foreground": "var(todo_blue4)",
         },
         {
             "scope": "ct_todo.delegated",
-            "foreground": "var(todo_blue5)",
+            "foreground": "var(todo_blue4)",
         },
         {
             "scope": "ct_todo.done",
