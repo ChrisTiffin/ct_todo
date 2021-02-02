@@ -42,7 +42,7 @@ contexts:
     - match: '{{separator}}'
       scope: ct_todo.separator
 
-    - match: ^\#
+    - match: ^\#.*$
       scope: ct_todo.comment
 
   text_block:
