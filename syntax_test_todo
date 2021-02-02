@@ -3,9 +3,9 @@ syntax test
 // <- ct_todo.heading
 ---------------------
 // <- ct_todo.separator
-> work in progress
-// <- ct_todo.doing
 < work in progress
+// <- ct_todo.doing
+> work paused
 // <- ct_todo.paused
 * high priority to do
 // <- ct_todo.todo.hp
@@ -37,8 +37,8 @@ sdfasdfasd
 
 asdf
 ----
-> work in progress      - (orange)
-< work in progress      - (light blue)
+< work in progress      - (orange)
+> work in progress      - (light blue)
 * high priority to do   - (red)
 - normal priority to do - (white)
 • low priority to do    - (yellow)
@@ -49,8 +49,8 @@ asdf
 
 colour test example 1
 ---------------------
-> have a cup of tea
-< work on todo list software
+< have a cup of tea
+> work on todo list software
 * speak with karen
 * speak with client a
 - email bob
@@ -73,8 +73,8 @@ colour test example 2
 
 colour test example 3
 ---------------------
-> have a cup of tea
-< work on todo list software
+< have a cup of tea
+> work on todo list software
 - hold team meeting
 • expense report
 • email bob
@@ -90,3 +90,7 @@ comment test
 some words
   inside a comment block
 '''
+
+######
+# Comment test
+######

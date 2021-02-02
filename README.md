@@ -39,8 +39,8 @@ Format example, with the list items in order:
 ```
 heading (optional)
 --, ~~ or == (optional: will be expanded to match the heading length)
-> in progress
-< paused
+< in progress
+> paused
 * high priority todo
 - normal priority todo
 • low priority todo
@@ -61,7 +61,7 @@ list one
 + completed task
 - todo 1
 - todo 2
-> current task
+< current task
 * important task
 list two
 + done
@@ -79,8 +79,8 @@ todo
 
 list one
 --------
-> current task
-< other current task
+< current task
+> other current task
 * important task
 - todo 1
 - todo 2
