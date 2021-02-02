@@ -1,33 +1,41 @@
 [
-  { "id": "preferences",
+  {
+    "id": "preferences",
     "children": [
-      { "caption": "Package Settings",
+      {
+        "caption": "Package Settings",
         "mnemonic": "P",
         "id": "package-settings",
         "children": [
-          { "caption": "todo",
+          {
+            "caption": "todo",
             "children": [
-              { "caption": "README",
+              {
+                "caption": "README",
                 "command": "open_file",
                 "args": {
                   "file": "${packages}/ct_todo/README.md"
                 }
               },
-              { "caption": "-" },
-              { "caption": "Settings",
+              {
+                "caption": "-"
+              },
+              {
+                "caption": "Settings",
                 "command": "edit_settings",
                 "args": {
                   "base_file": "${packages}/ct_todo/todo.sublime-settings",
                   "default": "{\n\t$0\n}\n"
                 }
               },
-              { "caption": "Key Bindings",
+              {
+                "caption": "Key Bindings",
                 "command": "edit_settings",
                 "args": {
                   "base_file": "${packages}/ct_todo/Default (${platform}).sublime-keymap",
                   "default": "[\n\t$0\n]\n"
                 }
-              },
+              }
             ]
           }
         ]
