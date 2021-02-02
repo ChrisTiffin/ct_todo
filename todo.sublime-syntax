@@ -42,6 +42,9 @@ contexts:
     - match: '{{separator}}'
       scope: ct_todo.separator
 
+    - match: ^\#
+      scope: ct_todo.comment
+
   text_block:
     - match: '{{string}}'
       scope: punctuation.definition.string.begin

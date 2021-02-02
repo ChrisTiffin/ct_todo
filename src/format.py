@@ -11,8 +11,8 @@
 '''
 
 SPECIAL_CHARS_DICT = {
-    u'>': 10,  # in progress
-    u'<': 20,  # paused
+    u'<': 10,  # in progress
+    u'>': 20,  # paused
     u'*': 30,  # high priority todo
     u'-': 40,  # normal priority todo
     u'•': 50,  # low priority todo

@@ -45,6 +45,10 @@
         {
             "scope": "ct_todo.separator",
             "foreground": "var(todo_blue1)",
+        },
+        {
+            "scope": "ct_todo.comment",
+            "foreground": "var(todo_gray)",
         }
     ],
     "variables": {
@@ -69,5 +73,6 @@
         "todo_blue4":   "#227497",
         "todo_blue5":   "#12678B",
         "todo_yellow":  "#FFDB58",
+        "todo_gray":    "#888888",
     }
 }
