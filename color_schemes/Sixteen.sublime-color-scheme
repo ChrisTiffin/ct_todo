@@ -1,1 +1,78 @@
-Monokai.sublime-color-scheme
+{
+    "name": "CT Todo Color Scheme",
+    "palette": "https://paletton.com/#uid=70C2f0knpv-ixEHl3-2q1u2t6rF",
+    "rules": [
+        {
+            "scope": "ct_todo.doing",
+            "foreground": "var(todo_orange4)",
+        },
+        {
+            "scope": "ct_todo.paused",
+            "foreground": "var(todo_blue1)",
+        },
+        {
+            "scope": "ct_todo.todo.hp",
+            "foreground": "var(todo_red3)",
+        },
+        // {
+        //     "scope": "ct_todo.todo",
+        //     "foreground": "",
+        // },
+        {
+            "scope": "ct_todo.todo.lp",
+            "foreground": "var(todo_yellow)",
+        },
+        {
+            "scope": "ct_todo.unsure",
+            "foreground": "var(todo_blue4)",
+        },
+        {
+            "scope": "ct_todo.separate",
+            "foreground": "var(todo_blue4)",
+        },
+        {
+            "scope": "ct_todo.delegated",
+            "foreground": "var(todo_blue4)",
+        },
+        {
+            "scope": "ct_todo.done",
+            "foreground": "var(todo_green2)",
+        },
+        {
+            "scope": "ct_todo.heading",
+            "foreground": "var(todo_blue1)",
+        },
+        {
+            "scope": "ct_todo.separator",
+            "foreground": "var(todo_blue1)",
+        },
+        {
+            "scope": "ct_todo.comment",
+            "foreground": "var(todo_gray)",
+        }
+    ],
+    "variables": {
+        "todo_orange1": "#FFB96B",
+        "todo_orange2": "#FFB057",
+        "todo_orange3": "#FCA544",
+        "todo_orange5": "#DC7E14",
+        "todo_orange4": "#EF942D",
+        "todo_green1":  "#5BD76A",
+        "todo_green2":  "#46CD57",
+        "todo_green3":  "#34C346",
+        "todo_green4":  "#23BC2D",
+        "todo_green5":  "#0FAB23",
+        "todo_red1":    "#FF736B",
+        "todo_red2":    "#FF6057",
+        "todo_red3":    "#FC4844",
+        "todo_red4":    "#EF362D",
+        "todo_red5":    "#DC1E14",
+        "todo_blue1":   "#559EBD",
+        "todo_blue2":   "#408CAD",
+        "todo_blue3":   "#307D9F",
+        "todo_blue4":   "#227497",
+        "todo_blue5":   "#12678B",
+        "todo_yellow":  "#FFDB58",
+        "todo_gray":    "#888888",
+    }
+}

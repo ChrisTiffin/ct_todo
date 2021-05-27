@@ -22,7 +22,7 @@ Installation
 4. Enter `https://github.com/cjtiffin/sublime-todo`
 5. Open command palette again
 6. Select _"Package Control: Install Package"_
-7. Select _"sublime-todo"_
+7. Select _"ct_todo"_
 
 ## Configuration
 
