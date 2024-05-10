@@ -1,36 +1,37 @@
 todo
 ----
-* commands
-- threading
-- expand block (##)
-- folding
-- auto new list item
-- move finished _groups_ to bottom
-+ don't format inside comment blocks
-+ sublime syntax highlighting
+* folding
+• auto new list item
+• move finished _groups_ to bottom
+? expand block (##)
+? threading
++ commands
 + account for -word (missing space)
-+ new format style (see block below)
 + add to readme (become, *)
++ don't format inside comment blocks
 + expand page headings (==)
 + expand section headings (--)
 + handle unsaved files
++ new format style (see block below)
 + remove prioritised lists (1)
++ sublime syntax highlighting
 + text/comment blocks
 
 shortcuts
 ---------
 mark as
-- doing:         ctrl + alt + .
-- paused:        ctrl + alt + shift + .
-- hp todo:       ctrl + alt + shift + 8
-- todo:          ctrl + alt + -
-- lp todo:       ctrl + alt + 8
-- unsure:        ctrl + alt + /
-- separate list: ctrl + alt + \
-- delegated:     ctrl + alt + shift + \
-- done:          ctrl + alt + =
++ doing:         cmd + alt + .
++ paused:        cmd + alt + shift + .
++ hp todo:       cmd + alt + shift + 8
++ todo:          cmd + alt + -
++ lp todo:       cmd + alt + 8
++ unsure:        cmd + alt + /
++ separate list: cmd + alt + \
++ delegated:     cmd + alt + shift + \
++ done:          cmd + alt + =
 
-demote to text:  ctrl + alt + [
++ promote item (increase priority):  cmd + alt + ]
++ demote item  (decrease priority):  cmd + alt + [
 
 move group:
 - up
@@ -38,12 +39,12 @@ move group:
 
 commands
 --------
-* mark as ...
 - remove all done
-- demote to text
 - move group [up, down]
+- demote to text
 ? merge into one (heading: item)
 ? split into many
++ mark as ...
 + run formatter
 
 potential keywords
@@ -55,4 +56,3 @@ potential keywords
 
     candidates - -=±!@%*+|<>?#∞§•–≠Ú«‹›‡·—»
 '''
-

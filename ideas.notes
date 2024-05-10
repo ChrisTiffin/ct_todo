@@ -49,7 +49,6 @@ todo item:
 - type
 - text
 
---
 settings
 - prefix or postfix separators?
 - auto sort groups (put finished groups at bottom)

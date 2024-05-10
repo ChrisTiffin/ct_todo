@@ -26,8 +26,7 @@ Installation
 
 ## Configuration
 
-The defaults are available in the [todo.sublime-settings][settings_file]
-file.
+The defaults are available in the [todo.sublime-settings][settings_file] file.
 
 
 .todo format

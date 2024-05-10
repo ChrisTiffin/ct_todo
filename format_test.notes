@@ -9,27 +9,22 @@ sort order test
 « separate list         - 7
 » delegated             - 8
 + done                  - 9
-
 line one
 --------
 line two
-
 #####
 # comment block
 #####
-
 comment test
 ------------
 '''
 some words
   inside a comment block
 '''
-
 """
 some words
   inside a comment block
 """
-
 ```
 these
 --

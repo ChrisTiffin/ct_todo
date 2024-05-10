@@ -3,39 +3,39 @@
     "palette": "https://paletton.com/#uid=70C2f0knpv-ixEHl3-2q1u2t6rF",
     "rules": [
         {
-            "scope": "ct_todo.doing",
+            "scope": "todo.list.doing",
             "foreground": "var(todo_orange4)",
         },
         {
-            "scope": "ct_todo.paused",
+            "scope": "todo.list.paused",
             "foreground": "var(todo_blue1)",
         },
         {
-            "scope": "ct_todo.todo.hp",
+            "scope": "todo.list.hp_todo",
             "foreground": "var(todo_red3)",
         },
         // {
-        //     "scope": "ct_todo.todo",
+        //     "scope": "todo.list.todo",
         //     "foreground": "",
         // },
         {
-            "scope": "ct_todo.todo.lp",
+            "scope": "todo.list.lp_todo",
             "foreground": "var(todo_yellow)",
         },
         {
-            "scope": "ct_todo.unsure",
+            "scope": "todo.list.unsure",
             "foreground": "var(todo_blue4)",
         },
         {
-            "scope": "ct_todo.separate",
+            "scope": "todo.list.separate",
             "foreground": "var(todo_blue4)",
         },
         {
-            "scope": "ct_todo.delegated",
+            "scope": "todo.list.delegated",
             "foreground": "var(todo_blue4)",
         },
         {
-            "scope": "ct_todo.done",
+            "scope": "todo.list.done",
             "foreground": "var(todo_green2)",
         },
         {

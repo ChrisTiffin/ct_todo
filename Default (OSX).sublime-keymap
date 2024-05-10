@@ -1,16 +1,14 @@
 [
-    // { "keys": ["ctrl+alt+."],        "command": "todo_mark_doing", },
-    // { "keys": ["ctrl+alt+shift+."],  "command": "todo_mark_paused", },
-    // { "keys": ["ctrl+alt+shift+8"],  "command": "todo_mark_hp_todo", },
-    // { "keys": ["ctrl+alt+-"],        "command": "todo_mark_todo", },
-    // { "keys": ["ctrl+alt+8"],        "command": "todo_mark_lp_todo", },
-    // { "keys": ["ctrl+alt+/"],        "command": "todo_mark_unsure", },
-    // { "keys": ["ctrl+alt+\\"],       "command": "todo_mark_list", },
-    // { "keys": ["ctrl+alt+shift+\\"], "command": "todo_mark_delegated", },
-    // { "keys": ["ctrl+alt+="],        "command": "todo_mark_done", },
+    { "keys": ["super+alt+,"],        "command": "todo_mark_as", "args": {"style": "doing"} },
+    { "keys": ["super+alt+."],        "command": "todo_mark_as", "args": {"style": "paused"} },
+    { "keys": ["super+alt+8"],        "command": "todo_mark_as", "args": {"style": "hp_todo"} },
+    { "keys": ["super+alt+-"],        "command": "todo_mark_as", "args": {"style": "todo"} },
+    { "keys": ["super+alt+shift+8"],  "command": "todo_mark_as", "args": {"style": "lp_todo"} },
+    { "keys": ["super+alt+shift+/"],  "command": "todo_mark_as", "args": {"style": "unsure"} },
+    { "keys": ["super+alt+\\"],       "command": "todo_mark_as", "args": {"style": "list"} },
+    { "keys": ["super+alt+shift+\\"], "command": "todo_mark_as", "args": {"style": "delegated"} },
+    { "keys": ["super+alt+="],        "command": "todo_mark_as", "args": {"style": "done"} },
 
-    // { "keys": ["ctrl+alt+["], "command": "todo_demote_to_text", },
-
-    // { "keys": ["ctrl+alt+up"],   "command": "todo_move_group_up", },
-    // { "keys": ["ctrl+alt+down"], "command": "todo_move_group_down", },
+    { "keys": ["super+alt+["],        "command": "todo_promote", "args": {"down": true} },
+    { "keys": ["super+alt+]"],        "command": "todo_promote" },
 ]

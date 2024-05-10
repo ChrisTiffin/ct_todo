@@ -1,48 +1,39 @@
 [
-  { "caption": "Preferences: todo",
+  {
+    "caption": "Preferences: todo",
     "command": "edit_settings",
     "args": {
       "base_file": "${packages}/ct_todo/todo.sublime-settings",
       "default": "{\n\t$0\n}\n"
     }
   },
-  { "caption": "Preferences: todo Key Bindings",
+  {
+    "caption": "Preferences: todo Key Bindings",
     "command": "edit_settings",
     "args": {
       "base_file": "${packages}/ct_todo/Default.sublime-keymap",
       "default": "[\n\t$0\n]\n"
     }
   },
-  { "caption": "todo: Open Readme",
+  {
+    "caption": "todo: Open Readme",
     "command": "open_file",
     "args": {
       "file": "${packages}/ct_todo/README.md"
     }
   },
   {
-    "caption": "todo: Format As Notes",
+    "caption": "todo: Format File",
     "command": "todo_fmt",
     "args": {
-      "notes": true
+      "all": true
     }
   },
   {
-    "caption": "todo: Format As Todo",
+    "caption": "todo: Format Current Scope",
     "command": "todo_fmt",
     "args": {
-      "notes": false
+      "all": false
     }
   },
-  // {
-  //   "caption": "todo: Clear All Completed Items",
-  //   "command": "todo_clear_done"
-  // },
-  // {
-  //   "caption": "todo: Move Group Up",
-  //   "command": "todo_move_group_up"
-  // },
-  // {
-  //   "caption": "todo: Move Group Down",
-  //   "command": "todo_move_group_down"
-  // }
 ]

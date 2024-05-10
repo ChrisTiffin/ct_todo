@@ -1,96 +1,53 @@
 // SYNTAX TEST "Packages/ct_todo/todo.sublime-syntax"
 syntax test
-// <- ct_todo.heading
----------------------
-// <- ct_todo.separator
+-----------
+// <- todo.separator
 < work in progress
-// <- ct_todo.doing
+// <- todo.list
+// <- todo.list.doing
 > work paused
-// <- ct_todo.paused
+// <- todo.list
+// <- todo.list.paused
 * high priority to do
-// <- ct_todo.todo.hp
+// <- todo.list
+// <- todo.list.hp_todo
 - normal priority to do
-// <- ct_todo.todo
+// <- todo.list
+// <- todo.list.todo
 • low priority to do
-// <- ct_todo.todo.lp
+// <- todo.list
+// <- todo.list.lp_todo
 ? unsure whether to do
-// <- ct_todo.unsure
+// <- todo.list
+// <- todo.list.unsure
 « separate list
-// <- ct_todo.separate
+// <- todo.list
+// <- todo.list.separate
 » delegated
-// <- ct_todo.delegated
+// <- todo.list
+// <- todo.list.delegated
 + done
-// <- ct_todo.done
+// <- todo.list
+// <- todo.list.done
 
 line one
---------
+========
+// <- todo.separator
 line two
-
-heading test
-> asdf
-+ done
-+ done 2
-
-colour test
-asdfasdf
-sdfasdfasd
-
-asdf
-----
-< work in progress      - (orange)
-> work in progress      - (light blue)
-* high priority to do   - (red)
-- normal priority to do - (white)
-• low priority to do    - (yellow)
-? unsure whether to do  - (dark blue)
-« separate list         - (dark blue)
-» delegated             - (dark blue)
-+ done                  - (green)
-
-colour test example 1
----------------------
-< have a cup of tea
-> work on todo list software
-* speak with karen
-* speak with client a
-- email bob
-- hold team meeting
-- speak with client b
-• expense report
-» speak with client c
-+ reply to frank's email
-
-colour test example 2
----------------------
-* speak with karen
-* speak with client a
-- email bob
-- hold team meeting
-- speak with client b
-- speak with client c
-- expense report
-+ reply to frank's email
-
-colour test example 3
----------------------
-< have a cup of tea
-> work on todo list software
-- hold team meeting
-• expense report
-• email bob
-« speak with client b
-« speak with client c
-+ speak with karen
-+ speak with client a
-+ reply to frank's email
+// <- todo.plain
 
 comment test
 ------------
 '''
+// <- punctuation.definition.string
+// <- punctuation.definition.string.begin
 some words
+// <- string.quoted.triple
   inside a comment block
 '''
+// <- punctuation.definition.string.end
 
 ######
 # Comment test
 ######
+// <- todo.comment

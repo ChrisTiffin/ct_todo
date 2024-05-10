@@ -6,51 +6,63 @@ file_extensions:
   - todo
   - notes
 
-scope: text.todo
+scope: todo.plain
 
 variables:
-  string:    ^(['"`])\1{2}$\n?
-  separator: ^([\-=~])\1+$\n?
+  string:    ^(['"`])\1{2}$
+  separator: '^([\-=~])\1+$'
+  bullets:   '<>\*\-•\?«»\+'
+  anyend:    '.*$'
+  spaceend:  '\s{{anyend}}'
 
 contexts:
   main:
-    - include: types
-    - include: text_block
+    - match: '(?=^[{{bullets}}]\s.*$)'
+      push: list
 
-  types:
-    - match: ^>\s.*$
-      scope: ct_todo.doing
-    - match: ^<\s.*$
-      scope: ct_todo.paused
+    # - match: '(?=^.*$\n{{separator}})'
+    # - match: '^.*$\n(?={{separator}})'
+    # - match: '^.*$\n(?={{separator}})'
+    #   scope: todo.header
 
-    - match: ^\*\s.*$
-      scope: ct_todo.todo.hp
-    - match: ^\-\s.*$
-      scope: ct_todo.todo
-    - match: ^•\s.*$
-      scope: ct_todo.todo.lp
-
-    - match: ^\?\s.*$
-      scope: ct_todo.unsure
-    - match: ^«\s.*$
-      scope: ct_todo.separate
-    - match: ^»\s.*$
-      scope: ct_todo.delegated
-
-    - match: ^\+\s.*$
-      scope: ct_todo.done
     - match: '{{separator}}'
-      scope: ct_todo.separator
+      scope: todo.separator
 
-    - match: ^\#.*$
-      scope: ct_todo.comment
+    - match: '^\#{{anyend}}'
+      scope: todo.comment
 
-  text_block:
     - match: '{{string}}'
       scope: punctuation.definition.string.begin
-      push: inside_text
+      push: quote
 
-  inside_text:
+  list:
+    - meta_scope: todo.list
+    - match: '(?=^[^{{bullets}}])'
+      pop: true
+
+    - match: '^<{{spaceend}}'
+      scope: todo.list.doing
+    - match: '^>{{spaceend}}'
+      scope: todo.list.paused
+
+    - match: '^\*{{spaceend}}'
+      scope: todo.list.hp_todo
+    - match: '^\-{{spaceend}}'
+      scope: todo.list.todo
+    - match: '^•{{spaceend}}'
+      scope: todo.list.lp_todo
+
+    - match: '^\?{{spaceend}}'
+      scope: todo.list.unsure
+    - match: '^«{{spaceend}}'
+      scope: todo.list.separate
+    - match: '^»{{spaceend}}'
+      scope: todo.list.delegated
+
+    - match: '^\+{{spaceend}}'
+      scope: todo.list.done
+
+  quote:
     - meta_scope: string.quoted.triple
     - match: '{{string}}'
       scope: punctuation.definition.string.end
