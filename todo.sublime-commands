@@ -36,4 +36,40 @@
       "all": false
     }
   },
+  {
+    "caption": "todo: Remove Done",
+    "command": "todo_remove_done",
+  },
+  {
+    "caption": "todo: Fold",
+    "command": "todo_fold",
+  },
+  {
+    "caption": "todo: Fold Done",
+    "command": "todo_fold",
+    "args": {
+      "level": "done"
+    }
+  },
+  {
+    "caption": "todo: Fold Doing",
+    "command": "todo_fold",
+    "args": {
+      "level": "doing"
+    }
+  },
+  {
+    "caption": "todo: Fold More",
+    "command": "todo_fold_level",
+    "args": {
+      "increase": true
+    }
+  },
+  {
+    "caption": "todo: Fold Less",
+    "command": "todo_fold_level",
+    "args": {
+      "increase": false
+    }
+  },
 ]

@@ -11,4 +11,11 @@
 
     { "keys": ["super+alt+["],        "command": "todo_promote", "args": {"down": true} },
     { "keys": ["super+alt+]"],        "command": "todo_promote" },
+
+    { "keys": ["ctrl+alt+["],         "command": "todo_fold_level", "args": {"increase": false} },
+    { "keys": ["ctrl+alt+]"],         "command": "todo_fold_level", "args": {"increase": true} },
+
+    { "keys": ["ctrl+alt+0"],         "command": "todo_toggle_fold" },
+    { "keys": ["ctrl+alt+-"],         "command": "todo_fold", "args": {"level": "delegated"} },
+    { "keys": ["ctrl+alt+="],         "command": "todo_fold", "args": {"level": "doing"} },
 ]

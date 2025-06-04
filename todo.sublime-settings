@@ -1,3 +1,4 @@
 {
-  "format_on_save": true
+  "format_on_save": true,
+  "remove_done_on_save": false
 }

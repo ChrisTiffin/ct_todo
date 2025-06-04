@@ -24,15 +24,15 @@
         },
         {
             "scope": "todo.list.unsure",
-            "foreground": "var(todo_blue4)",
+            "foreground": "var(todo_gray)",
         },
         {
             "scope": "todo.list.separate",
-            "foreground": "var(todo_blue4)",
+            "foreground": "var(todo_gray)",
         },
         {
             "scope": "todo.list.delegated",
-            "foreground": "var(todo_blue4)",
+            "foreground": "var(todo_gray)",
         },
         {
             "scope": "todo.list.done",
@@ -73,6 +73,6 @@
         "todo_blue4":   "#227497",
         "todo_blue5":   "#12678B",
         "todo_yellow":  "#FFDB58",
-        "todo_gray":    "#888888",
+        "todo_gray":    "#999999",
     }
 }

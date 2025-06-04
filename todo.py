@@ -6,7 +6,6 @@ import traceback
 import os
 
 
-
 '''
     Formatting Side:
 
@@ -30,10 +29,16 @@ BULLETS = [
     ["done",       u'+'],
 ]
 PRIORITY_MAP   = {c[0]:c[1] for c in BULLETS}
+PRIORITY_IMAP  = {v: k for k, v in PRIORITY_MAP.items()}
 BULLET_RANK    = {c[1]:r for r,c in enumerate(BULLETS, 1)}
 RANKED_BULLETS = {v:k for k,v in BULLET_RANK.items()}
 
 COMMENT_DELIMS = ["'''", '"""', '```']
+
+DEFAULT_FOLD = "lp_todo"
+DEFAULT_FOLD_LEVEL = BULLET_RANK[PRIORITY_MAP["lp_todo"]]
+MIN_FOLD = list(RANKED_BULLETS.keys())[0]
+MAX_FOLD = list(RANKED_BULLETS.keys())[-1]
 
 
 def is_repeated_char(line):
@@ -216,6 +221,48 @@ def format_file(filename):
         file.write(text)
 
 
+def fold(view, fold_level):
+    full_region = sublime.Region(0, view.size())
+    lines = view.lines(full_region)
+    view.unfold(full_region)
+
+    fold_regions = []
+    current_fold_start = None
+
+    def end_fold():
+        nonlocal current_fold_start
+        if current_fold_start is not None:
+            fold_regions.append(sublime.Region(current_fold_start, current_fold_end))
+            current_fold_start = None
+
+
+    for line_region in lines:
+        line_text = view.substr(line_region).strip()
+
+        if not line_text or (len(line_text) > 2 and line_text[1] != " "):
+            end_fold()
+            continue
+
+        # Get the symbol and priority
+        symbol = line_text[0]
+        priority = BULLET_RANK.get(symbol, 0)
+
+        if priority > fold_level:
+            if current_fold_start is None:
+                current_fold_start = view.full_line(line_region.begin()).begin()
+            # Always extend to the end of the current line
+            current_fold_end = view.full_line(line_region.begin()).end()
+        else:
+            end_fold()
+
+    # Final region flush
+    end_fold()
+
+    # Fold all collected regions
+    for region in fold_regions:
+        view.fold(region)
+
+
 
 '''
     Sublime Side:
@@ -322,3 +369,52 @@ class TodoFmtOnSave(sublime_plugin.EventListener):
         settings = sublime.load_settings('todo.sublime-settings')
         if settings.get('format_on_save', True):
             view.run_command('todo_fmt')
+        if settings.get('remove_done_on_save', True):
+            view.run_command('todo_remove_done')
+
+
+class TodoRemoveDone(TodoTextCommand):
+    @handle_errors
+    def run(self, edit):
+        view = self.view
+        scope = self.get_all()
+        lines = view.lines(scope)
+
+        for line_region in reversed(lines):  # Reverse to avoid offset issues
+            if view.substr(line_region).startswith("+ "):
+                view.erase(edit, view.full_line(line_region.begin()))
+
+
+class TodoFold(TodoTextCommand):
+    @handle_errors
+    def run(self, edit, level=DEFAULT_FOLD):
+        fold_level = BULLET_RANK[PRIORITY_MAP[level]]
+        fold(self.view, fold_level)
+        self.view.settings().set("fold_level", fold_level)
+
+
+class TodoToggleFold(TodoTextCommand):
+    @handle_errors
+    def run(self, edit):
+        if self.view.folded_regions():
+            self.view.run_command('unfold_all')
+        else:
+            fold_level = self.view.settings().get("fold_level", DEFAULT_FOLD_LEVEL)
+            level = PRIORITY_IMAP[RANKED_BULLETS[fold_level]]
+            self.view.run_command('todo_fold', {"level": level})
+
+
+class TodoFoldLevel(TodoTextCommand):
+    @handle_errors
+    def run(self, edit, increase):
+        fold_level = self.view.settings().get("fold_level", DEFAULT_FOLD_LEVEL)
+
+        if increase:
+            fold_level = max(fold_level - 1, MIN_FOLD-1)
+        else:
+            fold_level = min(fold_level + 1, MAX_FOLD)
+
+        self.view.settings().set("fold_level", fold_level)
+
+        fold(self.view, fold_level)
+

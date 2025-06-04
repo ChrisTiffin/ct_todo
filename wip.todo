@@ -1,10 +1,13 @@
 todo
 ----
-* folding
+- alphabetical intralist order
+- bug with selection when using shortcuts
 • auto new list item
-• move finished _groups_ to bottom
-? expand block (##)
+• move completed _groups_ to bottom
+? expand block (##) - to page width?
 ? threading
++ folding
++ change ? colour to be brighter
 + commands
 + account for -word (missing space)
 + add to readme (become, *)
@@ -16,6 +19,12 @@ todo
 + remove prioritised lists (1)
 + sublime syntax highlighting
 + text/comment blocks
+
+settings
+--------
+- alphabetical intralist order
+- move cursor with done items
++ remove done on save
 
 shortcuts
 ---------
@@ -30,20 +39,25 @@ mark as
 + delegated:     cmd + alt + shift + \
 + done:          cmd + alt + =
 
-+ promote item (increase priority):  cmd + alt + ]
 + demote item  (decrease priority):  cmd + alt + [
++ promote item (increase priority):  cmd + alt + ]
 
 move group:
 - up
 - down
 
+fold
++ decrease
++ increase
+
 commands
 --------
-- remove all done
 - move group [up, down]
 - demote to text
 ? merge into one (heading: item)
 ? split into many
++ fold
++ remove all done
 + mark as ...
 + run formatter
 
